@@ -3,6 +3,7 @@ def d(n):
     for i in list(str(n)):
         num+=int(i) 
     return int(n)+num
+    
 constructor= []
 for j in range(1,10001):
     con_num=d(j)
