@@ -1,6 +1,3 @@
-# curr앞의 prev와 next를 연결
-# 맨 앞의 것이면 prev가 없고 head 조정 필요
-# 
 class Node:
 
     def __init__(self, item):
@@ -80,14 +77,15 @@ class LinkedList:
             self.head=None
             self.tail=None
             self.nodeCount=0
-            return curr.data
+            return curr
+            
         # 삭제하려는 노드가 헤드면서 유일한 값이 아닌 경우
         elif pos == 1 and self.nodeCount > 1 :
             curr=self.getAt(pos)
             self.head=curr.next
             self.tail=self.getAt(self.nodeCount)
             self.nodeCount-=1
-            return curr.data
+            return curr
         # 삭제하려는 노드값이 헤드가 아닌 경우
         else :
             # 삭제하려는 노드가 테일인 경우
@@ -97,14 +95,14 @@ class LinkedList:
                 self.tail=prev
                 prev.next=None
                 self.nodeCount-=1
-                return curr.data 
+                return curr
             # 삭제하려는 노드가 중간값인 경우
             else :
                 curr=self.getAt(pos)
                 prev=self.getAt(pos-1)
                 prev.next=curr.next
                 self.nodeCount-=1
-                return curr.data
+                return curr
 
     def traverse(self):
         result = []
