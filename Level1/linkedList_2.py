@@ -73,7 +73,7 @@ class LinkedList:
 
         # 삭제하려는 노드가 헤드면서 유일한 값인 경우
         if pos == 1 and self.nodeCount==1 :
-            curr=self.getAt(pos)
+            curr=self.getAt(pos).data
             self.head=None
             self.tail=None
             self.nodeCount=0
@@ -81,7 +81,7 @@ class LinkedList:
             
         # 삭제하려는 노드가 헤드면서 유일한 값이 아닌 경우
         elif pos == 1 and self.nodeCount > 1 :
-            curr=self.getAt(pos)
+            curr=self.getAt(pos).data
             self.head=curr.next
             self.tail=self.getAt(self.nodeCount)
             self.nodeCount-=1
@@ -90,7 +90,7 @@ class LinkedList:
         else :
             # 삭제하려는 노드가 테일인 경우
             if pos == self.nodeCount:
-                curr=self.getAt(pos)
+                curr=self.getAt(pos).data
                 prev=self.getAt(pos-1)
                 self.tail=prev
                 prev.next=None
@@ -98,7 +98,7 @@ class LinkedList:
                 return curr
             # 삭제하려는 노드가 중간값인 경우
             else :
-                curr=self.getAt(pos)
+                curr=self.getAt(pos).data
                 prev=self.getAt(pos-1)
                 prev.next=curr.next
                 self.nodeCount-=1
