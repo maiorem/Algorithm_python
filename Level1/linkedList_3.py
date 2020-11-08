@@ -60,11 +60,10 @@ class LinkedList:
         curr=prev.next
         if curr is None :
             return None
-        if prev.next is None and self.nodeCount==1 :
-            self.tail==None
-        elif curr.next is None and self.nodeCount > 1 :
+        if curr.next is None and self.nodeCount == 1 :
+            self.tail=None
+        else :
             self.tail=prev
-            return curr.data
         prev.next=curr.next
         return curr.data
         
